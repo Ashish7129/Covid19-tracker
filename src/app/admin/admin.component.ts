@@ -49,7 +49,7 @@ export class AdminComponent implements OnInit {
     if (this.loginForm.valid) {
       if (this.loginForm.dirty) {
         const adminData = { ...this.admin, ...this.loginForm.value };
-        console.log(adminData);
+        // console.log(adminData);
         this.isSaving = true;
         this.userService.getAdmins().subscribe({
           next: (currentUsers) => {
@@ -57,13 +57,13 @@ export class AdminComponent implements OnInit {
               (x) =>
                 x.email === adminData.email && x.password === adminData.password
             );
-            console.log('user : ' + authUser);
+            // console.log('user : ' + authUser);
             this.currentUser = !authUser ? false : true;
             if (this.currentUser) {
-              console.log('Valid user');
+              // console.log('Valid user');
               localStorage.setItem('email', authUser.email);
             } else {
-              console.log('InValid user');
+              // console.log('InValid user');
             }
             this.isSaving = false;
             if (this.authenticated()) {

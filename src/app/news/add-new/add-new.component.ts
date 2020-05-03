@@ -31,12 +31,12 @@ export class AddNewComponent implements OnInit {
   }
 
   save() {
-    console.log(this.newsForm);
-    console.log('Saved: ' + JSON.stringify(this.newsForm.value));
+    //   console.log(this.newsForm);
+    //  console.log('Saved: ' + JSON.stringify(this.newsForm.value));
     if (this.newsForm.valid) {
       if (this.newsForm.dirty) {
         const p = { ...this.news, ...this.newsForm.value };
-        console.log('data :' + p);
+        //    console.log('data :' + p);
         this.newsService.createNews(p).subscribe({
           next: (addedNews) => {
             this.news.push(addedNews);
