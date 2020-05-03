@@ -9,7 +9,7 @@ import { News } from '../model/news';
   providedIn: 'root',
 })
 export class UserService {
-  private adminUrl = 'api/admin';
+  public adminUrl = 'api/admin';
   errorMessage: any;
   currentUser: boolean;
   constructor(private http: HttpClient) {}
@@ -20,21 +20,6 @@ export class UserService {
       catchError(this.handleError)
     );
   }
-
-  async adminLogin(admin: IAdmin): Promise<boolean> {
-    await this.getAdmins().subscribe({
-      next: (currentUsers) => {
-        const authUser = currentUsers.find(
-          (x) => x.email === admin.email && x.password === admin.password
-        );
-        console.log('user : ' + authUser);
-        this.currentUser = !authUser ? false : true;
-      },
-      error: (err) => (this.errorMessage = err),
-    });
-    return this.currentUser;
-  }
-
   public handleError(
     handleError: any
   ): import('rxjs').OperatorFunction<IAdmin[], any> {

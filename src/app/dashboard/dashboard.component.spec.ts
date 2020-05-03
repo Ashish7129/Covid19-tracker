@@ -28,10 +28,7 @@ describe('DashboardComponent', () => {
     fixture.detectChanges();
   });
 
-  // it('should create', () => {
-  //   expect(component).toBeTruthy();
-  // });
-  it('should contain data state code for TT', inject(
+  it('should contain data for state code TT', inject(
     [CovidService],
     (httpService) => {
       httpService.getStateList().subscribe((data: any) => {
