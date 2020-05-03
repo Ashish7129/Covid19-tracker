@@ -1,0 +1,6 @@
+@media screen and (max-width: 624px) {
+    .navbar .navbar-brand,
+    .navbar .navbar-menu {
+        width: 100%;
+    }
+}

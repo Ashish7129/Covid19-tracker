@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="hero-body" *ngFor="let new of news">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-5">
+          <figure class="image is-4by3">
+            <img
+              src="https://picsum.photos/800/600/?random"
+              alt="{{ new.title }}"
+            />
+          </figure>
+        </div>
+        <div class="column is-6 is-offset-1">
+          <h1 class="title is-2">
+            {{ new.title }}
+          </h1>
+          <h2 class="subtitle is-4">
+            {{ new.description }}
+          </h2>
+          <br />
+          <div>{{ new.summary }}</div>
+          <p class="has-text-right is-italic">
+            By Admin
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

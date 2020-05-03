@@ -1,0 +1,166 @@
+<div class="container">
+  <section class="section hero-body">
+    <div class="card">
+      <header class="card-header has-background-info">
+        <p class="card-header-item has-text-white-ter has-text-centered">
+          <span>
+            Total Cases in India
+          </span>
+        </p>
+      </header>
+    </div>
+    <div class="row" *ngIf="items.length > 0">
+      <div class="col-sm-3">
+        <div class="card">
+          <header class="card-header has-background-info">
+            <p class="card-header-item has-text-white-ter has-text-centered">
+              <span>
+                Reported
+              </span>
+            </p>
+          </header>
+          <div class="card-content">
+            <p class="title">
+              {{ items[0].confirmed }}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card">
+          <header class="card-header has-background-danger">
+            <p class="card-header-item has-text-white-ter">
+              <span>
+                Active
+              </span>
+            </p>
+          </header>
+          <div class="card-content">
+            <p class="title">
+              {{ items[0].active }}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card">
+          <header class="card-header has-background-success">
+            <p class="card-header-item has-text-white-ter">
+              <span>
+                Recovered
+              </span>
+            </p>
+          </header>
+          <div class="card-content">
+            <p class="title">
+              {{ items[0].recovered }}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card">
+          <header class="card-header has-background-black-ter">
+            <p class="card-header-item has-text-white-ter">
+              <span>
+                Deceased
+              </span>
+            </p>
+          </header>
+          <div class="card-content">
+            <p class="title">
+              {{ items[0].deaths }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="panel panel-primary">
+    <div class="panel-heading">Status</div>
+    <div class="panel-body">
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th>State/UT</th>
+              <th>Reported Cases</th>
+              <th>Active</th>
+              <th>Recovered</th>
+              <th>Deceased</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of items; let indexOfelement = index">
+              <ng-template [ngIf]="indexOfelement > 0">
+                <td>
+                  <a
+                    href="#"
+                    data-toggle="modal"
+                    aria-haspopup="true"
+                    data-target="#showModal"
+                    (click)="getDistricts(item.state)"
+                    >{{ item.state }}</a
+                  >
+                </td>
+                <td>{{ item.confirmed }}</td>
+                <td>{{ item.active }}</td>
+                <td>{{ item.recovered }}</td>
+                <td>{{ item.deaths }}</td>
+              </ng-template>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+
+  <div class="modal" id="showModal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">{{ currentState }} Cases</p>
+        <button
+          class="delete is-large"
+          data-dismiss="modal"
+          aria-label="close"
+        ></button>
+      </header>
+      <section class="modal-card-body">
+        <div
+          class="table-responsive"
+          *ngIf="district?.length > 0; else noDistricts"
+        >
+          <table class="table table-striped table-sm">
+            <thead>
+              <tr>
+                <th>District</th>
+                <th>Reported Cases</th>
+                <th>Active</th>
+                <th>Recovered</th>
+                <th>Deceased</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of district; let indexOfelement = index">
+                <td>
+                  {{ districtNames[indexOfelement] }}
+                </td>
+                <td>{{ item.confirmed }}</td>
+                <td>{{ item.active }}</td>
+                <td>{{ item.recovered }}</td>
+                <td>{{ item.deceased }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ng-template #noDistricts>
+          <div class="table-responsive">
+            No district data is present
+          </div>
+        </ng-template>
+      </section>
+    </div>
+  </div>
+</div>

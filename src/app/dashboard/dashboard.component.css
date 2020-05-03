@@ -1,0 +1,93 @@
+.modal-content {
+  width: 150%;
+}
+.modal {
+  z-index: 1090;
+}
+
+.card {
+  margin: 10px;
+}
+
+.title {
+  font-size: 4rem !important;
+}
+@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+  /* Force table to not be like tables anymore */
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr {
+    border: 1px solid #ccc;
+  }
+
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+
+  /*
+	Label the data
+	*/
+  td:nth-of-type(1):before {
+    content: "State/UT";
+  }
+  .modal td:nth-of-type(1):before {
+    content: "District";
+  }
+  td:nth-of-type(2):before {
+    content: "Confirmed";
+  }
+  td:nth-of-type(3):before {
+    content: "Active";
+  }
+  td:nth-of-type(4):before {
+    content: "Recovered";
+  }
+  td:nth-of-type(5):before {
+    content: "Deceased";
+  }
+  .modal-content,
+  .modal-card {
+    margin: 0px;
+  }
+  .modal-card {
+    max-height: calc(100vh - 0px);
+  }
+  .modal-card-head {
+    border-bottom: 1px solid #dbdbdb;
+    border-top-left-radius: 1px;
+    border-top-right-radius: 1px;
+  }
+}
+.card {
+  text-transform: uppercase;
+  font-weight: bold;
+}

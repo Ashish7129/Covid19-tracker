@@ -1,0 +1,100 @@
+body {
+    margin: 0;
+    zoom: 1;
+    position: relative;
+    background-image: url("https://i.ibb.co/FnmcgR1/background-v1.jpg");
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #464646;
+}
+main {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 100px auto 100px;
+}
+section {
+    height: 100%;
+}
+.my-overlay {
+    left: 0 !important;
+    top: 0 !important;
+    z-index: 10000 !important;
+    width: 100% !important;
+    height: 100% !important;
+    position: fixed !important;
+    background-color: rgba(0, 0, 0, 0.9) !important;
+    cursor: pointer !important;
+    visibility: visible !important;
+    transition: visibility 0s, opacity 0.4s linear !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: wait !important;
+}
+.my-overlay i.fa.fa-spinner.fa-spin,
+.spinner-big {
+    font-size: 100px !important;
+}
+
+.text-overflow {
+    height: 140px;
+    display: block;
+    overflow: hidden;
+    word-break: break-word;
+    word-wrap: break-word;
+}
+
+.btn-overflow {
+    display: none;
+    text-decoration: none;
+}
+.navbar-start .navbar-item,
+.buttons .button {
+    text-decoration: none;
+}
+
+.button strong {
+    color: white !important;
+}
+
+.padd2rem {
+    padding: 2rem 0 0rem;
+}
+
+#currentDate {
+    font-family: "archia";
+    font-weight: 800;
+    font-size: 25px;
+    color: #6c757d;
+}
+
+.svg-inline--fa.fa-w-16 {
+    width: 2em;
+    font-size: 22px;
+    color: #6c757d;
+}
+
+@media screen and (min-width: 768px) {
+    .modal-dialog {
+        width: 700px; /* New width for default modal */
+    }
+    .modal-sm {
+        width: 350px; /* New width for small modal */
+    }
+}
+@media screen and (min-width: 992px) {
+    .modal-lg {
+        width: 950px; /* New width for large modal */
+    }
+}
+.svg-inline--fa.fa-heart.fa-w-16 {
+    width: 1em;
+    font-size: 16px;
+    color: red;
+}
+
+.hero-body {
+    padding: 2rem 0 !important;
+}

@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header has-background-primary">
+      Admin Login
+    </div>
+    <div class="card-body">
+      <section class="section hero-body">
+        <span class="invalid-feedback">
+          <span *ngIf="currentUser">
+            {{ errorMessage }}
+          </span>
+        </span>
+        <form novalidate (ngSubmit)="login()" [formGroup]="loginForm">
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="Enter email"
+              name="email"
+              formControlName="email"
+              [ngClass]="{
+                'is-invalid':
+                  (loginForm.get('email').touched ||
+                    loginForm.get('email').dirty) &&
+                  !loginForm.get('email').valid
+              }"
+            />
+            <span class="invalid-feedback">
+              <span *ngIf="loginForm.get('email').errors?.email">
+                Please enter the correct email.
+              </span>
+              <span *ngIf="loginForm.get('email').errors?.required">
+                Please enter the email.
+              </span>
+            </span>
+          </div>
+          <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input
+              type="password"
+              class="form-control"
+              id="pwd"
+              placeholder="Enter password"
+              name="pwd"
+              formControlName="password"
+              [ngClass]="{
+                'is-invalid':
+                  (loginForm.get('password').touched ||
+                    loginForm.get('password').dirty) &&
+                  !loginForm.get('password').valid
+              }"
+            />
+            <span class="invalid-feedback">
+              <span *ngIf="loginForm.get('password').errors?.required">
+                Please enter the password.
+              </span>
+              <span *ngIf="loginForm.get('password').errors?.minlength">
+                The password must be longer than 6 characters.
+              </span>
+            </span>
+          </div>
+          <div class="checkbox">
+            <label
+              ><input
+                type="checkbox"
+                name="rememberMe"
+                formControlName="rememberMe"
+              />
+              Remember me</label
+            >
+          </div>
+          <div>
+            <button
+              type="submit"
+              [disabled]="!loginForm.valid"
+              class="button is-primary"
+            >
+              Log In
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </div>
+</div>
