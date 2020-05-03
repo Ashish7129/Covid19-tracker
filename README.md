@@ -26,6 +26,6 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+## Further references
 
-I have used
+I have used the bulma and bootstrap for the styling css.

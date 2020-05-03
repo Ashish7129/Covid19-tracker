@@ -94,7 +94,9 @@
     font-size: 2rem !important;
   }
 }
-.card {
+.card,
+.panel-heading {
   text-transform: uppercase;
   font-weight: bold;
+  color: white;
 }
