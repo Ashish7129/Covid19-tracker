@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { News } from './news';
+import { News } from '../model/news';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NewsService } from '../services/news-service';
 import { Router } from '@angular/router';

@@ -6,7 +6,7 @@ import {
 } from '@angular/core/testing';
 
 import { DashboardComponent } from './dashboard.component';
-import { CovidService } from './covid.service';
+import { CovidService } from '../services/covid.service';
 import { HttpClientModule } from '@angular/common/http';
 
 describe('DashboardComponent', () => {

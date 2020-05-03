@@ -3,7 +3,7 @@ import { IAdmin } from '../model/data';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
-import { News } from '../news/news';
+import { News } from '../model/news';
 
 @Injectable({
   providedIn: 'root',

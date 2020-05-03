@@ -1,6 +1,6 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { News } from '../news/news';
-import { IAdmin } from '../model/data';
+import { News } from './news';
+import { IAdmin } from './data';
 
 export class ModelData implements InMemoryDbService {
   createDb() {

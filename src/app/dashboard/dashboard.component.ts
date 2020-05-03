@@ -3,7 +3,7 @@ import { IState, IDistrict } from '../model/data';
 import { HttpClient } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-import { CovidService } from './covid.service';
+import { CovidService } from '../services/covid.service';
 
 @Component({
   selector: 'app-dashboard',

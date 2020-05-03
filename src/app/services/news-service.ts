@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, tap, map, shareReplay } from 'rxjs/operators';
-import { News } from '../news/news';
+import { News } from '../model/news';
 
 @Injectable({
   providedIn: 'root',

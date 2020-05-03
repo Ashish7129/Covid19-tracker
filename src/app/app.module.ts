@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PrecautionsComponent } from './precautions/precautions.component';
 import { NewsComponent } from './news/news.component';
-import { ModelData } from './services/model-data';
+import { ModelData } from './model/model-data';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
