@@ -10,27 +10,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./news.component.css'],
 })
 export class NewsComponent implements OnInit {
-  new = new News();
   news: News[] = [];
   errorMessage = '';
-  loading = false;
 
-  newsForm: FormGroup;
-  constructor(
-    private fb: FormBuilder,
-    private newsService: NewsService,
-    private router: Router
-  ) {}
+  constructor(private newsService: NewsService) {}
 
   ngOnInit(): void {
-    this.loading = true;
     this.newsService.getNews().subscribe({
       next: (currentNews) => {
-        console.log('Init function : fetching the news : ' + currentNews);
-        this.news = currentNews;
+        // console.log('Init function : fetching the news : ' + currentNews);
+        this.news = currentNews.reverse();
       },
       error: (err) => (this.errorMessage = err),
     });
-    this.loading = false;
   }
 }

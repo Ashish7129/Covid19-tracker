@@ -5,11 +5,6 @@
     </div>
     <div class="card-body">
       <section class="section hero-body">
-        <span class="invalid-feedback">
-          <span *ngIf="currentUser">
-            {{ errorMessage }}
-          </span>
-        </span>
         <form novalidate (ngSubmit)="login()" [formGroup]="loginForm">
           <div class="form-group">
             <label for="email">Email:</label>
@@ -28,7 +23,7 @@
               }"
             />
             <span class="invalid-feedback">
-              <span *ngIf="loginForm.get('email').errors?.email">
+              <span *ngIf="loginForm.get('email').errors?.pattern">
                 Please enter the correct email.
               </span>
               <span *ngIf="loginForm.get('email').errors?.required">
@@ -77,8 +72,11 @@
               [disabled]="!loginForm.valid"
               class="button is-primary"
             >
-              Log In
+              <ng-container *ngIf="isSaving; else defaultText">
+                <div class="loader"></div>
+              </ng-container>
             </button>
+            <ng-template #defaultText>Log In</ng-template>
           </div>
         </form>
       </section>

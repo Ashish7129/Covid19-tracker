@@ -1,6 +1,9 @@
-@media screen and (max-width: 624px) {
-    .navbar .navbar-brand,
-    .navbar .navbar-menu {
-        width: 100%;
-    }
+@media screen and (max-width: 768px) {
+  .navbar .navbar-brand,
+  .navbar .navbar-menu {
+    width: 100%;
+  }
+  .navbar-burger span {
+    height: 3px;
+  }
 }

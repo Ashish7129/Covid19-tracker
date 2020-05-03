@@ -15,6 +15,7 @@ export class AdminComponent implements OnInit {
   loginForm: FormGroup;
   errorMessage: any;
   currentUser = false;
+  isSaving = false;
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -49,6 +50,7 @@ export class AdminComponent implements OnInit {
       if (this.loginForm.dirty) {
         const adminData = { ...this.admin, ...this.loginForm.value };
         console.log(adminData);
+        this.isSaving = true;
         this.userService.getAdmins().subscribe({
           next: (currentUsers) => {
             const authUser = currentUsers.find(
@@ -63,6 +65,7 @@ export class AdminComponent implements OnInit {
             } else {
               console.log('InValid user');
             }
+            this.isSaving = false;
             if (this.authenticated()) {
               console.log('Redirecting to the dashboard');
               this.ngZone.run(() => this.router.navigate(['/dashboard']));
