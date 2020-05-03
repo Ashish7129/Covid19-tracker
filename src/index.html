@@ -71,5 +71,19 @@
         display_c();
       }
     </script>
+    <script>
+      window.onscroll = function () {
+        myFunction();
+      };
+
+      var sticky = 0;
+      function myFunction() {
+        if (0 >= sticky) {
+          $(".navbar").addClass("sticky");
+        } else {
+          $(".navbar").removeClass("sticky");
+        }
+      }
+    </script>
   </body>
 </html>
